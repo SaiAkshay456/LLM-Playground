@@ -20,3 +20,25 @@ const chain = prompt.pipe(openAiHelper.model).pipe(jsonParser)
 
 const output = await chain.invoke({ topic: "frontend", format_instructions: jsonParser.getFormatInstructions() })
 console.log(output);
+
+
+//string output parsers
+
+import { StringOutputParser } from "@langchain/core/output_parsers";
+
+const stringParser = new StringOutputParser();
+
+const chat = ChatPromptTemplate.fromTemplate(`You are a developer with 20+ years of experience.
+    Return valid JSON ONLY.
+    List important topics for the given domain.
+    Domain: {topic}
+    {format_instructions}
+`)
+
+const chainT = chat.pipe(openAiHelper.model).pipe(jsonParser);
+
+console.log(await chainT.invoke({
+    topic: "System Design",
+    format_instructions: jsonParser.getFormatInstructions()
+}))
+
