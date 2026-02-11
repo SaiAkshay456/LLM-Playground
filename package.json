@@ -10,11 +10,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@langchain/google-genai": "^2.0.4",
-    "@langchain/openai": "^1.1.3",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
-    "langchain": "^1.1.5",
+    "langchain": "^1.2.21",
     "lucide-react": "^0.556.0",
     "next": "16.0.7",
     "node-fetch": "^3.3.2",
